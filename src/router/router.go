@@ -30,7 +30,7 @@ func NewRouter(lfm lastfm.Lastfm) http.Handler {
 			fmt.Errorf("%e", err)
 			SendResponse(w, nil, false, "Error while getting Data")
 		} else {
-			SendResponse(w, data, true, "")
+			SendResponse(w, data.RecentTracks.Track, true, "")
 		}
 	})
 
