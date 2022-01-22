@@ -1,0 +1,11 @@
+version: "3"
+services:
+  web:
+    build: ./
+    container_name: api
+    ports:
+      - "12341:80"
+    volumes:
+      - ./err.txt:/app/err.txt
+      - ./files:/app/files
+    restart: unless-stopped
