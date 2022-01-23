@@ -6,6 +6,10 @@ type Response struct {
 			Arist struct {
 				Text string `json:"#text"`
 			} `json:"artist"`
+			Image []struct {
+				Size string `json:"size"`
+				Text string `json:"#text"`
+			} `json:"image"`
 			Name string `json:"name"`
 			Attr struct {
 				NowPlaying string `json:"nowplaying"`
@@ -13,6 +17,7 @@ type Response struct {
 			Date struct {
 				Uts string `json:"uts"`
 			} `json:"date"`
+			Link string `json:"url"`
 		} `json:"track"`
 	} `json:"recenttracks"`
 }

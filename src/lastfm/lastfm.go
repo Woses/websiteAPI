@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/woses/websiteAPI/models"
 )
@@ -39,6 +40,14 @@ func (l Lastfm) GetData() (r models.Response, e error) {
 		e = err
 		return
 	}
+
+	for _, track := range data.RecentTracks.Track {
+		track.Link = strings.Replace(track.Link, "\\", "", -1)
+		for _, image := range track.Image {
+			image.Text = strings.Replace(image.Text, "\\", "", -1)
+		}
+	}
+
 	r = data
 	return
 }
